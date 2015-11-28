@@ -1,0 +1,82 @@
+<?php
+
+namespace picc\piccBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Comments
+ *
+ * @ORM\Table(name="comments")
+ * @ORM\Entity
+ */
+class Comments
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="wtf_id", type="integer", nullable=true)
+     */
+    private $wtfId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="parent_id", type="integer", nullable=true)
+     */
+    private $parentId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="user_id", type="integer", nullable=true)
+     */
+    private $userId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="user_name", type="text", nullable=true)
+     */
+    private $userName;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="vote_up", type="integer", nullable=true)
+     */
+    private $voteUp;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="vote_down", type="integer", nullable=true)
+     */
+    private $voteDown;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="date_publish", type="text", nullable=true)
+     */
+    private $datePublish;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comm", type="text", nullable=true)
+     */
+    private $comm;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}
+

@@ -1,0 +1,26 @@
+{# 
+    piccBundle::index.html.twig
+    
+    Index page, will show the 10's last Picc
+#}
+
+{# Inherits base twig template, whitch include bootstrap, jquery, etc #}
+{% extends 'piccBundle::base.html.twig' %}
+
+{# Overwrite body from base.twig #}
+{% block body %}
+
+    {# For each picc in piccs, draw it as bootstrap::panel #}
+    {% for picc in piccs %}
+		<div class="panel panel-default">
+			<div class="panel-body">
+    			{{ picc.revisionContent }}	
+			</div>
+            {# Show username in footer #}
+			<div class="panel-footer">
+			    {{ picc.userDisplayName }}
+            </div>
+			</div>
+    {% endfor %}
+
+{% endblock %}
