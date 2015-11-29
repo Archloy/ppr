@@ -1,3 +1,9 @@
 picc_homepage:
-    path:     /
-    defaults: { _controller: piccBundle:Default:index }
+    pattern:  /{id}
+    defaults: { _controller: piccBundle:Default:index, id: 1 }
+
+picc_pages:
+    pattern:  /page/{id}
+    defaults: { _controller: piccBundle:Default:index, id: 1 }
+    requirements:
+        id: \d+
