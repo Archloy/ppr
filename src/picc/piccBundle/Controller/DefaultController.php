@@ -16,6 +16,6 @@ class DefaultController extends Controller
         $lasts = $repo->select('p')->from('piccBundle:Pebkac', 'p')->orderBy('p.id', 'DESC')->setMaxResults(10);
 
         // Call twig index template and associate result of request 
-        return $this->render('piccBundle:Default:index.html.twig', array('name' => "Loy", 'piccs' => $lasts->getQuery()->getResult()));
+        return $this->render('piccBundle:Default:index.html.twig', array('piccs' => $lasts->getQuery()->getResult()));
     }
 }
