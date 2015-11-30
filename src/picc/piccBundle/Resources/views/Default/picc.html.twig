@@ -37,12 +37,14 @@
         <div class="panel panel-info">
             {% embed 'piccBundle:Comments:commentBlock.html.twig' with {'comm':comm} %}
             {% endembed %}
+            {% if comm.hasChild != 0 %}
             <ul class="list-group">
                 {% for comm2 in comms if comm2.parentId == comm.id %}
                     <li class="list-group-item">
                     <div class="panel panel-info">
                         {% embed 'piccBundle:Comments:commentBlock.html.twig' with {'comm':comm2} %}
                         {% endembed %}
+                        {% if comm2.hasChild != 0 %}
                         <ul class="list-group">
                             {% for comm3 in comms if comm3.parentId == comm2.id %}
                                 <li class="list-group-item">
@@ -53,10 +55,12 @@
                                 </li>
                             {% endfor %}
                         </ul>
+                        {% endif %}
                     </div>
                     </li>
                 {% endfor %}
             </ul>
+            {% endif %}
         </div>
     {% endfor %}
     </div>
