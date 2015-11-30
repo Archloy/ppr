@@ -18,16 +18,16 @@
 			</div>
             {# Picc informations in footer #}
 			<div class="panel-footer">
-            <span class="label label-default">#{{ picc.id }}</span>
-            <span class="label label-primary">{{ picc.userDisplayName }}</span>
-            <span class="badge progress-bar-success">+{{ picc.voteUp }}</span>
-            <span class="badge progress-bar-danger">-{{ picc.voteDown }}</span>
-            <span class="label label-info">comms {{ picc.commentCount }}</span>
-            <span class="label label-warning">{{ picc.datePublish }}</span>
-			    
+
+                <a href="{{ url('picc_view') }}/{{picc.id}}"><span class="label label-default"><u>#{{ picc.id }}</u></span></a>
+                <span class="label label-primary">{{ picc.userDisplayName }}</span>
+                <span class="badge progress-bar-success">+{{ picc.voteUp }}</span>
+                <span class="badge progress-bar-danger">-{{ picc.voteDown }}</span>
+                <span class="label label-info">comms {{ picc.commentCount }}</span>
+                <span class="label label-warning">{{ picc.datePublish }}</span>        
                 
             </div>
-			</div>
+        </div>
     {% endfor %}
 
 {% endblock %}

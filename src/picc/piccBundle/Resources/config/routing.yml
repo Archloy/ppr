@@ -1,9 +1,18 @@
 picc_homepage:
-    pattern:  /{id}
-    defaults: { _controller: piccBundle:Default:index, id: 1 }
-
-picc_pages:
-    pattern:  /page/{id}
+    path:  /{id}
     defaults: { _controller: piccBundle:Default:index, id: 1 }
     requirements:
         id: \d+
+
+picc_pages:
+    path:  /page/{id}
+    defaults: { _controller: piccBundle:Default:index, id: 1 }
+    requirements:
+        id: \d+
+
+picc_view:
+    path: /picc/{id}
+    defaults: { _controller: piccBundle:Default:showPicc, id: 1 }
+    requirements:
+        id: \d+
+

@@ -1,0 +1,64 @@
+
+{# 
+    piccBundle::picc.html.twig
+    
+    View specified Picc and comments
+#}
+
+{# Inherits base twig template, whitch include bootstrap, jquery, etc #}
+{% extends 'piccBundle::base.html.twig' %}
+
+{# Overwrite body from base.twig #}
+{% block body %}
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {{ picc.revisionContent }}	
+        </div>
+        {# Picc informations in footer #}
+        <div class="panel-footer">
+            
+            <span class="label label-default">#{{ picc.id }}</span>
+            <span class="label label-primary">{{ picc.userDisplayName }}</span>
+            <span class="badge progress-bar-success">+{{ picc.voteUp }}</span>
+            <span class="badge progress-bar-danger">-{{ picc.voteDown }}</span>
+            <span class="label label-info">comms {{ picc.commentCount }}</span>
+            <span class="label label-warning">{{ picc.datePublish }}</span>
+            
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        Commentaires avisés
+    </div>
+    <div class="panel-body">
+    {% for comm in comms if comm.parentId == 0 %}
+        <div class="panel panel-info">
+            {% embed 'piccBundle:Comments:commentBlock.html.twig' with {'comm':comm} %}
+            {% endembed %}
+            <ul class="list-group">
+                {% for comm2 in comms if comm2.parentId == comm.id %}
+                    <li class="list-group-item">
+                    <div class="panel panel-info">
+                        {% embed 'piccBundle:Comments:commentBlock.html.twig' with {'comm':comm2} %}
+                        {% endembed %}
+                        <ul class="list-group">
+                            {% for comm3 in comms if comm3.parentId == comm2.id %}
+                                <li class="list-group-item">
+                                <div class="panel panel-info">
+                                    {% embed 'piccBundle:Comments:commentBlock.html.twig' with {'comm':comm3} %}
+                                    {% endembed %}
+                                </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+    </div>
+    </div>
+{% endblock %}
