@@ -23,6 +23,13 @@
 
         <section id="wrapper">
 
+            <header id="header">
+                    {% block header %}
+                    <div class="page-header">
+                        <h1>UFE:IBTR <small>User Fatal Error : Insert Brain Then Restart</small></h1>
+                    </div>
+                    {% endblock %}
+            </header>
             <section class="main-col">
                 {% block body %}{% endblock %}
             </section>
