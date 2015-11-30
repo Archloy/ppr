@@ -2,137 +2,95 @@
 
 namespace picc\piccBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
- * Pebkac
- *
- * @ORM\Table(name="pebkac")
- * @ORM\Entity
+ * Picc
  */
-class Pebkac
+class Picc
 {
     /**
      * @var integer
-     *
-     * @ORM\Column(name="user_id", type="integer", nullable=true)
      */
     private $userId;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="vote_up", type="integer", nullable=true)
      */
     private $voteUp;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="vote_down", type="integer", nullable=true)
      */
     private $voteDown;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="comment_count", type="integer", nullable=true)
      */
     private $commentCount;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="favorite_count", type="integer", nullable=true)
      */
     private $favoriteCount;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="date_publish", type="text", nullable=true)
      */
     private $datePublish;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="vote_count", type="integer", nullable=true)
      */
     private $voteCount;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="user_avatar", type="text", nullable=true)
      */
     private $userAvatar;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="status_label", type="text", nullable=true)
      */
     private $statusLabel;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="revision_content", type="text", nullable=true)
      */
-    private $revisionContent;
+    private $piccContent;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="full_url", type="text", nullable=true)
      */
     private $fullUrl;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="user_display_name", type="text", nullable=true)
      */
     private $userDisplayName;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="facebook", type="integer", nullable=true)
      */
     private $facebook;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="twitter", type="integer", nullable=true)
      */
     private $twitter;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="gplus", type="integer", nullable=true)
      */
     private $gplus;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="total_shares", type="integer", nullable=true)
      */
     private $totalShares;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
 
 
     /**
@@ -140,7 +98,7 @@ class Pebkac
      *
      * @param integer $userId
      *
-     * @return Pebkac
+     * @return Picc
      */
     public function setUserId($userId)
     {
@@ -164,7 +122,7 @@ class Pebkac
      *
      * @param integer $voteUp
      *
-     * @return Pebkac
+     * @return Picc
      */
     public function setVoteUp($voteUp)
     {
@@ -188,7 +146,7 @@ class Pebkac
      *
      * @param integer $voteDown
      *
-     * @return Pebkac
+     * @return Picc
      */
     public function setVoteDown($voteDown)
     {
@@ -212,7 +170,7 @@ class Pebkac
      *
      * @param integer $commentCount
      *
-     * @return Pebkac
+     * @return Picc
      */
     public function setCommentCount($commentCount)
     {
@@ -236,7 +194,7 @@ class Pebkac
      *
      * @param integer $favoriteCount
      *
-     * @return Pebkac
+     * @return Picc
      */
     public function setFavoriteCount($favoriteCount)
     {
@@ -260,7 +218,7 @@ class Pebkac
      *
      * @param string $datePublish
      *
-     * @return Pebkac
+     * @return Picc
      */
     public function setDatePublish($datePublish)
     {
@@ -284,7 +242,7 @@ class Pebkac
      *
      * @param integer $voteCount
      *
-     * @return Pebkac
+     * @return Picc
      */
     public function setVoteCount($voteCount)
     {
@@ -308,7 +266,7 @@ class Pebkac
      *
      * @param string $userAvatar
      *
-     * @return Pebkac
+     * @return Picc
      */
     public function setUserAvatar($userAvatar)
     {
@@ -332,7 +290,7 @@ class Pebkac
      *
      * @param string $statusLabel
      *
-     * @return Pebkac
+     * @return Picc
      */
     public function setStatusLabel($statusLabel)
     {
@@ -352,27 +310,27 @@ class Pebkac
     }
 
     /**
-     * Set revisionContent
+     * Set piccContent
      *
-     * @param string $revisionContent
+     * @param string $piccContent
      *
-     * @return Pebkac
+     * @return Picc
      */
-    public function setRevisionContent($revisionContent)
+    public function setPiccContent($piccContent)
     {
-        $this->revisionContent = $revisionContent;
+        $this->piccContent = $piccContent;
 
         return $this;
     }
 
     /**
-     * Get revisionContent
+     * Get piccContent
      *
      * @return string
      */
-    public function getRevisionContent()
+    public function getPiccContent()
     {
-        return $this->revisionContent;
+        return $this->piccContent;
     }
 
     /**
@@ -380,7 +338,7 @@ class Pebkac
      *
      * @param string $fullUrl
      *
-     * @return Pebkac
+     * @return Picc
      */
     public function setFullUrl($fullUrl)
     {
@@ -404,7 +362,7 @@ class Pebkac
      *
      * @param string $userDisplayName
      *
-     * @return Pebkac
+     * @return Picc
      */
     public function setUserDisplayName($userDisplayName)
     {
@@ -428,7 +386,7 @@ class Pebkac
      *
      * @param integer $facebook
      *
-     * @return Pebkac
+     * @return Picc
      */
     public function setFacebook($facebook)
     {
@@ -452,7 +410,7 @@ class Pebkac
      *
      * @param integer $twitter
      *
-     * @return Pebkac
+     * @return Picc
      */
     public function setTwitter($twitter)
     {
@@ -476,7 +434,7 @@ class Pebkac
      *
      * @param integer $gplus
      *
-     * @return Pebkac
+     * @return Picc
      */
     public function setGplus($gplus)
     {
@@ -500,7 +458,7 @@ class Pebkac
      *
      * @param integer $totalShares
      *
-     * @return Pebkac
+     * @return Picc
      */
     public function setTotalShares($totalShares)
     {
@@ -529,3 +487,4 @@ class Pebkac
         return $this->id;
     }
 }
+

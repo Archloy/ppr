@@ -280,4 +280,33 @@ class Comments
     {
         return $this->id;
     }
+    /**
+     * @var integer
+     */
+    private $haschild = '0';
+
+
+    /**
+     * Set haschild
+     *
+     * @param integer $haschild
+     *
+     * @return Comments
+     */
+    public function setHaschild($haschild)
+    {
+        $this->haschild = $haschild;
+
+        return $this;
+    }
+
+    /**
+     * Get haschild
+     *
+     * @return integer
+     */
+    public function getHaschild()
+    {
+        return $this->haschild;
+    }
 }

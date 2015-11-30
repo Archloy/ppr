@@ -13,7 +13,7 @@ class DefaultController extends Controller
         $repo = $this->getDoctrine()->getManager()->createQueryBuilder();
 
         // Prepare request for last ten and get the query
-        $query = $repo->select('p')->from('piccBundle:Pebkac', 'p')->orderBy('p.id', 'DESC')->setFirstResult(($id-1)*10)->setMaxResults(10)->getQuery();
+        $query = $repo->select('p')->from('piccBundle:Picc', 'p')->orderBy('p.id', 'DESC')->setFirstResult(($id-1)*10)->setMaxResults(10)->getQuery();
 
         $lasts = $query->getResult();
 
@@ -28,7 +28,7 @@ class DefaultController extends Controller
     // Action performed on pebkac/id and print comments 
     public function showPiccAction($id)
     {
-        $picc = $this->getDoctrine()->getRepository('piccBundle:Pebkac')->find($id);
+        $picc = $this->getDoctrine()->getRepository('piccBundle:Picc')->find($id);
 
         if(!$picc)
             throw $this->createNotFoundException('Page does not exist !');
