@@ -2,6 +2,7 @@
 
 namespace picc\piccBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,14 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="users")
  * @ORM\Entity
  */
-class Users
+class Users extends BaseUser
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="userName", type="text", nullable=false)
-     */
-    private $username;
 
     /**
      * @var string
@@ -31,37 +26,11 @@ class Users
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="Auto")
      */
-    private $id;
+    protected $id;
 
-
-
-    /**
-     * Set username
-     *
-     * @param string $username
-     *
-     * @return Users
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-
-        return $this;
-    }
-
-    /**
-     * Get username
-     *
-     * @return string
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
+	/**
      * Set avatar
      *
      * @param string $avatar
