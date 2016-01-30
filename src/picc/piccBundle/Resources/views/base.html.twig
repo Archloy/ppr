@@ -1,83 +1,18 @@
-<!-- app/Resources/views/base.html.twig -->
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html"; charset=utf-8" />
-		{% trans_default_domain 'FOSUserBundle' %}
-        <title>{% block title %}UFE:IBTR{% endblock %} : User Fatal Error : Insert Brain Then Restart </title>
-        <!--[if lt IE 9]>
-            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-        {% block stylesheets %}
-            <link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>
-            <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>
-            <link href="{{ asset('css/screen.css') }}" type="text/css" rel="stylesheet" />
-        {% endblock %}
-		
-	    {% stylesheets '@bootstrap_css' %}
-	        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
-	    {% endstylesheets %}
+{% extends 'layout.html.twig' %}
+{% block body %}
 
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
+	<section class="col-md-9">
+		{% block contents %}{% endblock %}
+	</section>
+	
+	<section class="col-md-3">
+	
+		{% if user_ %}
+			{% include 'piccBundle:UserMgt:userblock.html.twig' %}
+		{% else %}
+			{% include 'piccBundle:UserMgt:loginForm.html.twig' %}
+		{% endif %}
 
-        <section id="wrapper">
+	</section>
 
-            <header class="page-header">
-                    {% block header %}
-                    <div class="page-header">
-                        <h1>UFE:IBTR <small>User Fatal Error : Insert Brain Then Restart</small></h1>
-                    </div>
-                    {% endblock %}
-            </header>
-
-			<section class="col-md-9">
-                {% block body %}{% endblock %}
-            </section>
-			
-			<section class="col-md-3">
-				
-				{% if user_ %}
-					<div class="panel panel-default">
-						Welcome {{ user_.name }}<br />
-						<a href="profile/">Edit Profile </a><br />
-						<a href="/app_dev.php/logout">Log out </a><br />
-					<div>
-				{% else %}
-					<form class="form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">
-					<div class="form-group">
-						<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-				
-						<label class="control-label" for="username">{{ 'security.login.username'|trans }}</label>
-						<input type="text" id="username" name="_username" required="required" />
-				
-						<label for="password">{{ 'security.login.password'|trans }}
-							<input type="password" id="password" name="_password" required="required" />
-						</label>
-				
-						<label>{{ 'security.login.remember_me'|trans }}  <input type="checkbox" id="remember_me" value="on" /></label><br />
-						<label>
-						<button type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" >{{ 'security.login.submit'|trans }}</button>
-						<label>
-					</div>
-					</form>
-				{% endif %}
-			</section>
-            <aside class="sidebar">
-                {% block sidebar %}{% endblock %}
-            </aside>
-
-            <div id="footer">
-                {% block footer %}
-                {% endblock %}
-            </div>
-        </section>
-
-        {% block javascripts %}
-			{% javascripts '@jquery' '@bootstrap_js' %}
-    	    	<script type="text/javascript" src="{{ asset_url }}"></script>
-	    	{% endjavascripts %}
-		{% endblock %}
-    </body>
-</html>
+{% endblock %}

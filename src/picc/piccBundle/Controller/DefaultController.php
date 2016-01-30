@@ -31,6 +31,7 @@ class DefaultController extends Controller
 		$vars['user_'] = $tmpUser ? $this->getUserInfos($tmpUser) : null;
 		return $this->render($template, $vars);
 	}
+
     // Action performed by call "index" page
     public function indexAction($id)
     {
@@ -61,4 +62,10 @@ class DefaultController extends Controller
 
         return $this->ret_page('piccBundle:Default:picc.html.twig', array('picc' => $picc, 'comms' => $comms));
     }
+
+	// Action register
+	public function registerAction()
+	{
+		return $this->render('piccBundle:Default:register.html.twig');
+	}
 }
