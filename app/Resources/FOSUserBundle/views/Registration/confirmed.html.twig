@@ -1,0 +1,20 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+		<div class="modal-header"><h4 class="modal-title" id="myModalLabel">Confirmed !</h4></div>
+		<div class="modal-body">
+			<p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+			{% if targetUrl %}
+				<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+			{% endif %}
+		</div>
+		 	
+		<script type="text/javascript" >
+		$('#register').on('hide.bs.modal', function(ev) 
+		{
+			location.reload(true);
+		})
+		</script>
+{% endblock fos_user_content %}

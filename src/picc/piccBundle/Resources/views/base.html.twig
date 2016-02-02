@@ -7,12 +7,17 @@
 	
 	<section class="col-md-3">
 	
+		<div class="panel panel-default">
 		{% if user_ %}
 			{% include 'piccBundle:UserMgt:userblock.html.twig' %}
 		{% else %}
 			{% include 'piccBundle:UserMgt:loginForm.html.twig' %}
 		{% endif %}
+		</div>
 
 	</section>
 
+{% endblock %}
+
+{% block jsScripts %}
 {% endblock %}

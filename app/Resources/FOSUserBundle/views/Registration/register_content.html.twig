@@ -1,0 +1,33 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+	{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}, 'attr':{'id': 'regForm'}}) }}
+		{{ form_widget(form) }}
+		<div>
+		<!--	<input type="submit" value="{{ 'registration.submit'|trans }}" data-toggle="modal" data-target="#register"/>-->
+		<button type="submit" class="btn btn-default modal-submit" >Submit</button>
+		</div>
+	{{ form_end(form) }}
+<script type="text/javascript" >
+/*    $('.modal-submit').on('click', function(e) {
+        // Prevent form submission
+        e.preventDefault();
+
+        //var validator = $(e.target).data('formValidation'),
+        //    username  = validator.getFieldElements('username').val();
+		$('#register').modal('hide');
+        $('#WelcomeModal').modal('show');
+
+    });*/
+	console.log("bonjour");
+
+	$('#regForm').on('submit', function(e) {
+			e.preventDefault();
+			var formAction = $(this).attr("action");
+			$.post(formAction, $('#regForm').serialize(), function(data, status, xhr)
+			{
+				$('#modal_content').replaceWith(data);
+			});
+			return false;
+			});
+</script>
+	    	

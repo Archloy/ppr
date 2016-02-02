@@ -1,26 +1,33 @@
 {% trans_default_domain 'FOSUserBundle' %}
-<form class="form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">
-	<div class="form-group">
-		<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+<div class='panel-heading'><h4>Log-in now !</h4></div>
+<div class='panel-body'>
+<div class='text-center'>
+	<form class="form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">
+		<div class="form-group">
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-		<label class="control-label" for="username">{{ 'security.login.username'|trans }}</label>
-		<input type="text" id="username" name="_username" required="required" />
+			<label class="control-label" for="username">{{ 'security.login.username'|trans }}</label>
+			<input type="text" id="username" name="_username" required="required" />
 
-		<label for="password">{{ 'security.login.password'|trans }}
-			<input type="password" id="password" name="_password" required="required" />
-		</label>
+			<label for="password">{{ 'security.login.password'|trans }}
+				<input type="password" id="password" name="_password" required="required" />
+			</label>
 
-		<label>{{ 'security.login.remember_me'|trans }}  <input type="checkbox" id="remember_me" value="on" /></label><br />
-		<label>
-			<button type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" >{{ 'security.login.submit'|trans }}</button>
-		<label>
-	</div>
-</form>
-
+			<label>{{ 'security.login.remember_me'|trans }}  <input type="checkbox" id="remember_me" value="on" /></label><br />
+			<label>
+				<button type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" >{{ 'security.login.submit'|trans }}</button>
+			<label>
+		</div>
+	</form>
+</div>
 <p>Or <a data-toggle="modal" href="register" data-target="#register"> register </a> 
 
-<div id="register" class="modal fade">
+</div>
+
+<div id="register" class="modal fade" tabindex="-1" role="dialog" >
+<div class="modal-dialog modal-sm">
 <div class="modal-content">
+</div>
 </div>
 </div>
 
